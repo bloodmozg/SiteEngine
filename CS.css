@@ -1,0 +1,368 @@
+.JSCS div,
+.JSCS span {
+	display : block;
+}
+
+/*
+*
+*   BUTTON ---- START ----
+*
+*/
+.CS.CSButton {
+	text-align            : center;
+	display               : inline-block;
+	margin                : 5px;
+
+	-moz-border-radius    : 8px;
+	-webkit-border-radius : 8px;
+	border-radius         : 8px;
+	border                : 1px solid #DCDCDC;
+
+	background            : -moz-linear-gradient(center top, #F9F9F9 5%, #E9E9E9 100%);
+	background            : -ms-linear-gradient(top, #F9F9F9 5%, #E9E9E9 100%);
+	filter                : progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9');
+	background            : -webkit-gradient(linear, left top, left bottom, color-stop(5%, #F9F9F9), color-stop(100%, #E9E9E9));
+	background-color      : #F9F9F9;
+
+	-webkit-box-shadow    : inset 1px 1px 0px 0px #FFF;
+	-moz-box-shadow       : inset 1px 1px 0px 0px #FFF;
+	box-shadow            : inset 1px 1px 0px 0px #FFF;
+}
+
+.CS.CSButton:hover {
+	background       : -moz-linear-gradient(center top, #E9E9E9 5%, #F9F9F9 100%);
+	background       : -ms-linear-gradient(top, #E9E9E9 5%, #F9F9F9 100%);
+	filter           : progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9');
+	background       : -webkit-gradient(linear, left top, left bottom, color-stop(5%, #E9E9E9), color-stop(100%, #F9F9F9));
+	background-color : #E9E9E9;
+}
+
+.CS.CSButton.Selected,
+.CS.CSButton.Selected:hover,
+.CS.CSButton.Selected:active {
+	background : #E5E696;
+	background : url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSI2NCUiIHN0b3AtY29sb3I9IiNlNWU2OTYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5OSUiIHN0b3AtY29sb3I9IiNkMWQzNjAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+");
+	background : -moz-linear-gradient(top, #E5E696 64%, #D1D360 99%);
+	background : -webkit-gradient(linear, left top, left bottom, color-stop(64%, #E5E696), color-stop(99%, #D1D360));
+	background : -webkit-linear-gradient(top, #E5E696 64%, #D1D360 99%);
+	background : -o-linear-gradient(top, #E5E696 64%, #D1D360 99%);
+	background : -ms-linear-gradient(top, #E5E696 64%, #D1D360 99%);
+	background : linear-gradient(to bottom, #E5E696 64%, #D1D360 99%);
+	filter     : progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5e696', endColorstr='#d1d360', GradientType=0);
+	top        : 0px;
+}
+
+.CS.CSButton:active {
+	position : relative;
+	top      : 1px;
+}
+
+.CS.CSButton .rightNode {
+	border-radius         : 8px;
+	-moz-border-radius    : 8px;
+	-webkit-border-radius : 8px;
+}
+
+.CS.CSButton .textNode {
+	display         : inline-block;
+	vertical-align  : middle;
+	cursor          : default;
+
+	font-size       : 16px;
+	font-family     : Arial;
+	font-weight     : normal;
+	color           : #666;
+	text-shadow     : 1px 1px 0px #FFF;
+	padding         : 3px 9px;
+	text-decoration : none;
+}
+
+.CS.CSButton.Page.Active {
+	background : #FEFCEA; /* Old browsers */
+	background : -moz-radial-gradient(center, ellipse cover, #FEFCEA 2%, #F1DA36 99%); /* FF3.6+ */
+	background : -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(2%, #FEFCEA), color-stop(99%, #F1DA36)); /* Chrome,Safari4+ */
+	background : -webkit-radial-gradient(center, ellipse cover, #FEFCEA 2%, #F1DA36 99%); /* Chrome10+,Safari5.1+ */
+	background : -o-radial-gradient(center, ellipse cover, #FEFCEA 2%, #F1DA36 99%); /* Opera 12+ */
+	background : -ms-radial-gradient(center, ellipse cover, #FEFCEA 2%, #F1DA36 99%); /* IE10+ */
+	background : radial-gradient(ellipse at center, #FEFCEA 2%, #F1DA36 99%); /* W3C */
+	filter     : progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefcea', endColorstr='#f1da36', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+}
+
+/*
+*
+*   BUTTON ---- END ----
+*
+*/
+
+.Unselectable {
+	-moz-user-select    : -moz-none;
+	-khtml-user-select  : none;
+	-webkit-user-select : none;
+	-ms-user-select     : none;
+	user-select         : none;
+}
+
+.Selectable{
+
+	-moz-user-select    : initial;
+	-khtml-user-select  : initial;
+	-webkit-user-select : initial;
+	-ms-user-select     : initial;
+	user-select         : initial;
+}
+
+.CSHide {
+	display : none;
+}
+
+.CS.CSPanel {
+	margin                : 3px;
+	-moz-border-radius    : 8px;
+	-webkit-border-radius : 8px;
+	border-radius         : 8px;
+	border                : 1px solid #DCDCDC;
+
+	-webkit-box-shadow    : inset 1px 1px 0px 0px #FFF;
+	-moz-box-shadow       : inset 1px 1px 0px 0px #FFF;
+	box-shadow            : inset 1px 1px 0px 0px #FFF;
+}
+
+.CS.CSPanel.PagesPanel,
+.CS.CSPanel.RecordsPanel {
+	border     : none;
+	box-shadow : none;
+}
+
+.CS.CSPanel.PagesPanel {
+	margin-left : 50px;
+}
+
+.Clickable,
+.Clickable .textNode {
+	cursor : pointer !important;
+}
+
+.CS.CSRecord .CSPanel {
+	padding : 5px;
+}
+
+.CS.CSRecord .Title {
+	font-size   : 22px;
+	font-weight : bold;
+}
+
+.CS.CSImagedom {
+	position : relative;
+	display  : inline-block;
+}
+
+.CS.CSImagedom img {
+	max-width : 100%;
+	height    : auto;
+	width     : auto \9;
+}
+
+.loadingBox {
+	background-color : rgba(0, 0, 0, 0.1);
+	position         : absolute;
+	top              : 0;
+	left             : 0;
+}
+
+.AbsoluteCenter {
+	margin   : auto;
+	position : absolute;
+	top      : 0;
+	left     : 0;
+	bottom   : 0;
+	right    : 0;
+}
+
+.CSGallery > .CSPanel {
+	border : none;
+}
+
+.CSPanel#AlbumsPanel,
+.CSPanel#PhotosPanel,
+.CSPanel#PagesPanel {
+	border     : none;
+	text-align : center;
+}
+
+#Album.CSPanel {
+	display  : inline-block;
+	position : relative;
+	border   : none;
+	cursor   : pointer;
+}
+
+#Album.CSPanel .CS.CSImagedom img {
+	border-radius : 8px;
+}
+
+#Album.CSPanel #Name {
+	text-align       : center;
+	position         : absolute;
+	bottom           : 0;
+	background-color : rgba(0, 0, 0, 0.5);
+	color            : #FFF;
+	border-radius    : 0 0 8px 8px;
+}
+
+#PhotosPanel #PhotosDataList #PhotoPanel {
+	display : inline-block;
+}
+
+.CSMosaic {
+	display : inline-block;
+}
+
+.CSMosaic .MosaicPanel {
+	display : inline-block;
+	margin  : 0;
+	border  : 0;
+}
+
+.CSMosaic .MosaicPanel img {
+	height : inherit;
+}
+
+.CSInput textarea {
+	resize : none;
+}
+
+.CSForm {
+	-moz-border-radius    : 8px;
+	-webkit-border-radius : 8px;
+	border-radius         : 8px;
+	border                : 1px solid #DCDCDC;
+
+	-webkit-box-shadow    : inset 1px 1px 0px 0px #FFF;
+	-moz-box-shadow       : inset 1px 1px 0px 0px #FFF;
+	box-shadow            : inset 1px 1px 0px 0px #FFF;
+}
+
+/*Admin Panel*/
+
+.AdminPanel.CSPanel {
+	border     : none;
+	text-align : center;
+}
+
+.AdminPanel .CSForm {
+	width      : 450px;
+	display    : inline-block;
+	text-align : center;
+	margin-top : 100px;
+}
+
+.AdminPanel .CSForm .Input {
+	border     : none;
+	height     : 45px;
+	width      : 200px;
+	display    : block;
+	position   : relative;
+	margin     : 5px auto;
+	text-align : center;
+}
+
+.AdminPanel .CSForm .Input input {
+	height                : 35px;
+	width                 : 186px;
+	color                 : #222;
+	border                : 2px solid #B5B5B5;
+	-webkit-border-radius : 8px;
+	-moz-border-radius    : 8px;
+	border-radius         : 8px;
+	font-size             : 18px;
+	padding               : 3px;
+	-webkit-box-shadow    : rgba(255, 255, 255, 0.4) 0 1px 0, inset rgba(000, 000, 000, 0.7) 0 0px 0px;
+	-moz-box-shadow       : rgba(255, 255, 255, 0.4) 0 1px 0, inset rgba(000, 000, 000, 0.7) 0 0px 0px;
+	box-shadow            : rgba(255, 255, 255, 0.4) 0 1px 0, inset rgba(000, 000, 000, 0.7) 0 0px 0px;
+	background-color      : #EEE;
+}
+
+.AdminPanel .CSForm .Input input:focus {
+	outline : none;
+}
+
+.AdminPanel .CSForm .Input.WithText input {
+	background-color : #FFF;
+}
+
+.AdminPanel .CSForm .Input.focused input {
+	height                     : 20px;
+	border-bottom-left-radius  : 0px;
+	border-bottom-right-radius : 0px;
+	border-bottom              : none;
+	font-size                  : 14px;
+	background-color           : #FFF;
+}
+
+.AdminPanel .CSForm .Input .CSText {
+	display      : block;
+	position     : absolute;
+	bottom       : 12px;
+	text-align   : left;
+	padding-left : 15px;
+	color        : #999;
+}
+
+.AdminPanel .CSForm .Input.WithText .CSText {
+	display : none;
+}
+
+.AdminPanel .CSForm .Input.focused .CSText {
+	display                    : block;
+	bottom                     : 0;
+	background-color           : rgba(0, 0, 0, 0.2);
+	color                      : #222;
+	width                      : 177px;
+	height                     : 15px;
+	left                       : 2px;
+	font-size                  : 12px;
+	border                     : 2px solid #B5B5B5;
+	border-top                 : none;
+	border-bottom-left-radius  : 8px;
+	border-bottom-right-radius : 8px;
+
+}
+
+.loader {
+	background-image    : url('data:image/gif;base64,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');
+	background-repeat   : no-repeat;
+	background-position : center center;
+	background-color    : transparent;
+	width               : 100%;
+	height              : 100%;
+}
+
+.CSSpoiler {
+	border        : 1px solid #EEE;
+	border-radius : 4px;
+	margin        : 5px 0;
+}
+
+.CSSpoiler .Title {
+	padding             : 4px 10px;
+	font-size           : 16px;
+	font-family         : Arial;
+	font-weight         : normal;
+	color               : #666;
+	text-shadow         : 1px 1px 0px #FFF;
+	background-repeat   : no-repeat;
+	background-position : right 0;
+}
+
+.CSSpoiler.Closed .Title {
+	background-image : url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAfCAYAAACVgY94AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjExR/NCNwAAAbdJREFUWEdjGMzg////vFDm4ASjDqQUjDqQUjDqQErBqAMpBaMOpBQMPweWlZXxsrGx7WJnZ78uJibmChUmGigqKvIJCwuvA+p/DNTvBxXGCUh2YEZGhiAzM/NtIPM/IyPjH2lp6Zba2lomiCx+AHSYFtBzML1/gfx4iAxuQFYUS0hICAoICBwAMv+DMD8//86IiAhxsCQW8ODBAwZ5efkUoMe+ALn/WVhYPkpKSgZCZPEDstNgTk4Os4yMTDfQUrAjeXh4ntrb29tCZBEgMjKSU1BQcCYwxMDqODg4LhkYGGhAZAkDijOJtbV1DDc391cg8z8rK+tPPj6+uHv37oHlUlNTdYGOuwSSA2FgqC/V0dHhBEsSCSh2IAg4ODho8vLyXgEywQ7R09PbXlNT0wMMrfcgPjCUfwKjNPf48eMg5SQBqjgQBGJiYriBGWAykAl2JAxzcnI+BToYI+qJBVRzIAgsWbKEARjFicD0Bo5yYKju1dfXF4XIkgeo6kAYsLCwUAc6zh6YQYgqfvABoAOFoczBCWgSgtQEow6kFAwqBwIdw4juICBfCMocnGA0iikFQ8CB/3kBrOO3L9MiBnMAAAAASUVORK5CYII=");
+}
+
+.CSSpoiler.Opened .Title {
+	background-image : url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAfCAYAAACVgY94AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjExR/NCNwAAAaxJREFUWEftkz9IAlEcx+86/x3nnV5HpiiIU38wdRREzqU1aFM4iiDBwVYn3dpqa2q3tTUKgjZ3CRoEEaI5ghyC4vV9dwc1RNz5pD/wPvDg+7ufDz/3e/cEQogq/GW4ICv/QXDRjTZUGEt0y9+HHzErXJAVCBpunJlGo7GgqqpZLpdX3Efzg3WCxWJxCXLXiEQUxammaXv9ft9pzgMWwUKhUJVl+QGRfF6hUOjEsiwFmZ1ZBAeDgZBKpQ4kSXpBSSKRyGO32z2G8AWt6cJUb2u12hr9PRN+BfP5vByPx88QbRFd14fNZnOD9sbjsYAj3gkGg7a4oijTSqVi0d7M+BEslUqrmNYQkX5vVO4UF0R2uh+YplmNRqP20WPKJJPJHLXbbcnp+sSrII50OxAIPCHSP33OZrP7k8nEaX5BvV5fjsVil4j2pDH1m2QyqdtNP3gRNAxjFxN7Q6QXYIR63el8T6/XW0in04fY+4qSvtio1Wr5k/QimEgktsLh8D3EznO5nOY+9gz2b2L/HV7uqtPp+PrmfV+SH4cLssIFWeGCrHBBVrggK1yQCUF4B4B4ty/gYfueAAAAAElFTkSuQmCC");
+}
+
+.CSSpoiler .Content {
+	padding    : 4px 20px;
+	border-top : 1px solid #DDD;
+}
