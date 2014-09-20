@@ -12,7 +12,7 @@ onLoadDocument (function () {
 		linkEngineSettings = settings.LinkEngine;
 		cookiesSettings = settings.Cookies;
 
-		_Engine = new CS ({
+		_Engine = new SEngine ({
 			ServerSettings : serverSettings,
 			EngineName     : serverSettings.EngineName,
 			Modules        : {
