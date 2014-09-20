@@ -44,7 +44,7 @@ function Modesettings (settings) {
 	return this;
 }
 
-Extend (Modesettings, CS);
+Extend (Modesettings, SEngine);
 
 var proto = Modesettings.prototype;
 

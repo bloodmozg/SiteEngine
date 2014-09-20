@@ -1,5 +1,5 @@
 <?php
-CS::addSetting("EngineName", "CS");
+CS::addSetting("EngineName", "SEngine");
 CS::addSetting("Debug", 1);
 CS::addSetting("Language", Languages::Russian);
 CS::addSetting("UseDataBase", true);

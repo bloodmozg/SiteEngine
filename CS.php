@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 
-$rootPath = "../CS/";
+$rootPath = "../SEngine/";
 
 $mysqlFile = stringFormat("{0}{1}", $rootPath, "safeMysql.php");
 $localizationFile = stringFormat("{0}{1}", $rootPath, "Localization.php");
@@ -30,7 +30,7 @@ abstract class CS {
 	}
 
 	private static function initRootPath () {
-		self::$enginePath = "../CS/";
+		self::$enginePath = "../SEngine/";
 		self::$rootPath = "";
 	}
 
@@ -514,7 +514,7 @@ class Menu {
 	public static function createMenu () {
 		$menus         = "";
 		$buttonPattern = '
-            <div class="CS buttonMenu leftNode CSButton" >
+            <div class="SEngine buttonMenu leftNode CSButton" >
                 <div class="rightNode">
                     <span class="textNode">{0}</span>
                 </div>

@@ -13,7 +13,7 @@ function LinkEngine (settings) {
 	return this;
 }
 
-Extend (LinkEngine, CS);
+Extend (LinkEngine, SEngine);
 
 var proto = LinkEngine.prototype;
 

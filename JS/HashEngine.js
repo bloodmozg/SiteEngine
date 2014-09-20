@@ -1,7 +1,7 @@
 function HashEngine (settings) {
 	this.Hash = this.addProp("Hash", Enums.Types.Object);
 	this.HashHandlerFunction = this.addProp("HashHandlerFunction", Enums.Types.Function);
-	this.Context = this.addProp("Context", CS, this);
+	this.Context = this.addProp("Context", SEngine, this);
 	this.EnableHandle = this.addProp("EnableHandle", Enums.Types.Boolean, true);
 	this.Name = this.addProp("Name", Enums.Types.String, "HashEngine");
 	HashEngine.Parent.apply(this, arguments);
@@ -9,7 +9,7 @@ function HashEngine (settings) {
 	return this;
 }
 
-Extend(HashEngine, CS);
+Extend(HashEngine, SEngine);
 
 var proto = HashEngine.prototype;
 

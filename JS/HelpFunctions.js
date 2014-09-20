@@ -464,7 +464,7 @@ function getType (obj) {
 
 	if (!isEmpty(obj)) {
 		if (!isEmpty(obj.Name) && !isEmpty(obj.Name.get)) {
-			if (obj instanceof CS) {
+			if (obj instanceof SEngine) {
 				result = obj.Name.get();
 			}
 		}

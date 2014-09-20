@@ -9,7 +9,7 @@ function Admin (settings) {
 	return this;
 }
 
-Extend(Admin, CS);
+Extend(Admin, SEngine);
 
 var proto = Admin.prototype;
 

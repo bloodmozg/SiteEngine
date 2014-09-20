@@ -4,7 +4,7 @@ function Form (settings) {
 	this.Files = this.addProp("Files", Enums.Types.Boolean, false);
 	this.Name = this.addProp("Name", Enums.Types.String, "Form");
 	this.Callback = this.addProp("Callback", Enums.Types.Function);
-	this.Context = this.addProp("Context", CS);
+	this.Context = this.addProp("Context", SEngine);
 	Form.Parent.apply(this, arguments);
 	return this;
 }

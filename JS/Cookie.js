@@ -6,7 +6,7 @@ function Cookies (settings) {
 	return this;
 }
 
-Extend (Cookies, CS);
+Extend (Cookies, SEngine);
 
 var proto = Cookies.prototype;
 

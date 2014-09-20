@@ -4,7 +4,7 @@ function Connector (settings) {
 	return this;
 }
 
-Extend(Connector, CS);
+Extend(Connector, SEngine);
 
 var proto = Connector.prototype;
 

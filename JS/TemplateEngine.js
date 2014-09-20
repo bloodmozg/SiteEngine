@@ -5,7 +5,7 @@ function TemplateEngine (settings) {
 	return this;
 }
 
-Extend(TemplateEngine, CS);
+Extend(TemplateEngine, SEngine);
 
 var proto = TemplateEngine.prototype;
 

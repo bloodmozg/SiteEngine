@@ -1,5 +1,5 @@
-function CS (settings) {
-	this.EngineName = this.addProp ("EngineName", Enums.Types.String, "CS");
+function SEngine (settings) {
+	this.EngineName = this.addProp ("EngineName", Enums.Types.String, "SEngine");
 	this.Engine = this.addProp ("Engine", Enums.Types.Object);
 	this.Modules = this.addProp ("Modules", Enums.Types.Object, {});
 	this.ServerSettings = this.addProp ("ServerSettings", Enums.Types.Object, {});
@@ -14,7 +14,7 @@ function CS (settings) {
 	return this;
 }
 
-var proto = CS.prototype;
+var proto = SEngine.prototype;
 
 var date = new Date ();
 proto.IdCounter = date.getTime ();

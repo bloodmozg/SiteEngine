@@ -21,7 +21,7 @@ function DomObject (settings) {
 	return this;
 }
 
-Extend(DomObject, CS);
+Extend(DomObject, SEngine);
 
 var proto = DomObject.prototype;
 
