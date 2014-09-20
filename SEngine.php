@@ -584,7 +584,7 @@ class Access {
 	private static $login;
 	private static $password;
 	private static $hash;
-	const localKey          = "CSEngine";
+	const localKey          = "SEngine";
 	const minPasswordLength = 8;
 	const saltLength        = 8;
 
