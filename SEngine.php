@@ -10,7 +10,7 @@ $settingsFile = stringFormat("{0}{1}", $rootPath, "Settings.php");
 include $mysqlFile;
 
 
-abstract class CS {
+abstract class SEngine {
 	private static $settings;
 	private static $localizations;
 	private static $enums;
@@ -26,7 +26,7 @@ abstract class CS {
 		self::initDataContext();
 		self::initModules();
 		self::initLinks();
-		self::$language = CS::getSetting("Language");
+		self::$language = SEngine::getSetting("Language");
 	}
 
 	private static function initRootPath () {
@@ -113,8 +113,8 @@ abstract class CS {
 		if (self::$localizations[$lang][$key]) {
 			return self::$localizations[$lang][$key];
 		}
-		else if (self::$localizations[CS::getSetting("Language")][$key]) {
-			return self::$localizations[CS::getSetting("Language")][$key];
+		else if (self::$localizations[SEngine::getSetting("Language")][$key]) {
+			return self::$localizations[SEngine::getSetting("Language")][$key];
 		}
 		else {
 			return "&nbsp;";
@@ -328,11 +328,11 @@ class Records {
 	public static function getCountRecords () {
 		$sql = 'SELECT COUNT(*)
                 FROM ?n';
-		echo CS::$dataContext->getOne($sql, self::$tableName);
+		echo SEngine::$dataContext->getOne($sql, self::$tableName);
 	}
 
 	public static function getRecords () {
-		$dir = CS::$dataContext->whiteList(self::$sorting, array(
+		$dir = SEngine::$dataContext->whiteList(self::$sorting, array(
 			'ASC',
 			'DESC'
 		), 'ASC');
@@ -341,16 +341,16 @@ class Records {
                 ORDER BY `id` $dir
                 LIMIT ?i, ?i";
 
-		$data = CS::$dataContext->getAll($sql, self::$tableName, self::$startRecord, self::$count);
+		$data = SEngine::$dataContext->getAll($sql, self::$tableName, self::$startRecord, self::$count);
 		foreach ($data as $i => $record) {
 			if ($record["photo"]) {
-				$data[$i]["photo"] = stringFormat("{0}/{1}", CS::getSetting("ImageFolder"), $record["photo"]);
+				$data[$i]["photo"] = stringFormat("{0}/{1}", SEngine::getSetting("ImageFolder"), $record["photo"]);
 			}
 			else {
 				$data[$i]["photo"] = NULL;
 			}
 			if ($record["photo_min"]) {
-				$data[$i]["photo_min"] = stringFormat("{0}/{1}", CS::getSetting("ImageFolder"), $record["photo_min"]);
+				$data[$i]["photo_min"] = stringFormat("{0}/{1}", SEngine::getSetting("ImageFolder"), $record["photo_min"]);
 			}
 			else {
 				$data[$i]["photo_min"] = NULL;
@@ -364,9 +364,9 @@ class Records {
                 FROM ?n
                 WHERE `id` = ?i";
 
-		$data              = CS::$dataContext->getRow($sql, self::$tableName, self::$idRecord);
-		$data['photo']     = stringFormat("{0}/{1}", CS::getSetting("ImageFolder"), $data["photo"]);
-		$data['photo_min'] = stringFormat("{0}/{1}", CS::getSetting("ImageFolder"), $data["photo_min"]);
+		$data              = SEngine::$dataContext->getRow($sql, self::$tableName, self::$idRecord);
+		$data['photo']     = stringFormat("{0}/{1}", SEngine::getSetting("ImageFolder"), $data["photo"]);
+		$data['photo_min'] = stringFormat("{0}/{1}", SEngine::getSetting("ImageFolder"), $data["photo_min"]);
 		echo json_encode($data);
 	}
 
@@ -386,7 +386,7 @@ class Gallery {
 	public static function getAlbumsCount () {
 		$sql = 'SELECT COUNT(*)
                 FROM ?n';
-		echo CS::$dataContext->getOne($sql, CS::getSetting("AlbumsTable"));
+		echo SEngine::$dataContext->getOne($sql, SEngine::getSetting("AlbumsTable"));
 	}
 
 	public static function getAlbums () {
@@ -394,7 +394,7 @@ class Gallery {
                 FROM ?n
                 LIMIT ?i, ?i";
 
-		$data = CS::$dataContext->getAll($sql, CS::getSetting("AlbumsTable"), self::$startRecord, self::$count);
+		$data = SEngine::$dataContext->getAll($sql, SEngine::getSetting("AlbumsTable"), self::$startRecord, self::$count);
 		echo json_encode($data);
 	}
 
@@ -404,7 +404,7 @@ class Gallery {
                 WHERE `albumId` = ?i
                 LIMIT ?i, ?i";
 
-		$data = CS::$dataContext->getAll($sql, CS::getSetting("PhotosTable"), self::$albumId, self::$startRecord, self::$count);
+		$data = SEngine::$dataContext->getAll($sql, SEngine::getSetting("PhotosTable"), self::$albumId, self::$startRecord, self::$count);
 		echo json_encode($data);
 	}
 
@@ -412,7 +412,7 @@ class Gallery {
 		$sql = 'SELECT COUNT(*)
                 FROM ?n
                 WHERE `albumId` = ?i';
-		echo CS::$dataContext->getOne($sql, CS::getSetting("PhotosTable"), self::$albumId);
+		echo SEngine::$dataContext->getOne($sql, SEngine::getSetting("PhotosTable"), self::$albumId);
 	}
 }
 
@@ -438,7 +438,7 @@ class Menu {
 		$_menu["id"]          = (string)$menu["id"];
 		$_menu["description"] = (string)str_replace("@/n", "<br/>", $menu["description"]);
 		$_menu["tagName"]     = (string)$menu->getName();
-		$_menu['imageSrc']    = stringFormat("{0}/{1}/{2}.jpg", CS::getSetting("ImageFolder"), CS::getSetting("MenuImagesFolder"), $_menu['id']);
+		$_menu['imageSrc']    = stringFormat("{0}/{1}/{2}.jpg", SEngine::getSetting("ImageFolder"), SEngine::getSetting("MenuImagesFolder"), $_menu['id']);
 		$_menu['clickable']   = true;
 		if ($menu['clickable'] == "false") {
 			$_menu['clickable'] = false;
@@ -514,7 +514,7 @@ class Menu {
 	public static function createMenu () {
 		$menus         = "";
 		$buttonPattern = '
-            <div class="SEngine buttonMenu leftNode CSButton" >
+            <div class="SEngine buttonMenu leftNode SEngineButton" >
                 <div class="rightNode">
                     <span class="textNode">{0}</span>
                 </div>
@@ -575,7 +575,7 @@ class Menu {
 	}
 
 	public static function init () {
-		self::$xml = simplexml_load_file(CS::getFullPath(CS::getSetting("MenuFile")));
+		self::$xml = simplexml_load_file(SEngine::getFullPath(SEngine::getSetting("MenuFile")));
 		self::parseXML();
 	}
 }
@@ -603,7 +603,7 @@ class Access {
                 FROM users u
                 WHERE u.login = ?s";
 
-		return CS::$dataContext->getRow($sql, $login);
+		return SEngine::$dataContext->getRow($sql, $login);
 	}
 
 	private static function generateKey () {
@@ -648,7 +648,7 @@ class Access {
 				$sql = "INSERT INTO users (`login`, `password`, `key`)
                     VALUES (?s, ?s, ?s)";
 
-				CS::$dataContext->query($sql, $login, $password, $salt);
+				SEngine::$dataContext->query($sql, $login, $password, $salt);
 				$userData = array(
 					"login" => $login,
 					"hash"  => self::generateHash($login, $password, $salt)
@@ -715,7 +715,7 @@ class Access {
                 		SET ?u
                 		WHERE login = ?s";
 
-		CS::$dataContext->query($sql, $data, $login);
+		SEngine::$dataContext->query($sql, $data, $login);
 		return $data['key'];
 	}
 
@@ -726,16 +726,16 @@ class Access {
                 SET ?u
                 WHERE login = ?s";
 
-			CS::$dataContext->query($sql, $data, self::$login);
+			SEngine::$dataContext->query($sql, $data, self::$login);
 		}
 	}
 
 	private static function error ($err) {
 		if (Errors::isValidValue($err)) {
-			$result = CS::getLocalization("error_" . $err);
+			$result = SEngine::getLocalization("error_" . $err);
 		}
 		else {
-			$result = CS::getLocalization("error_default");
+			$result = SEngine::getLocalization("error_default");
 		}
 		echo json_encode($result);
 		exit();
@@ -755,7 +755,7 @@ class Slider {
                 JOIN ?n T2 on T1.albumId = T2.Id
                 WHERE T2.Name = ?s";
 
-		$photos = CS::$dataContext->getAll($sql, CS::getSetting("PhotosTable"), CS::getSetting("AlbumsTable"), self::$albumName);
+		$photos = SEngine::$dataContext->getAll($sql, SEngine::getSetting("PhotosTable"), SEngine::getSetting("AlbumsTable"), self::$albumName);
 
 		echo json_encode($photos);
 	}
@@ -774,9 +774,9 @@ class Mosaic {
                 JOIN ?n T2 on T1.albumId = T2.Id
                 WHERE T2.Name = ?s";
 
-		$photos = CS::$dataContext->getAll($sql, CS::getSetting("PhotosTable"), CS::getSetting("AlbumsTable"), self::$albumName);
+		$photos = SEngine::$dataContext->getAll($sql, SEngine::getSetting("PhotosTable"), SEngine::getSetting("AlbumsTable"), self::$albumName);
 		foreach ($photos as $i => $photo) {
-			$photos[$i]["Path"] = stringFormat("{0}/{1}", CS::getSetting("ImageFolder"), $photo["Path"]);
+			$photos[$i]["Path"] = stringFormat("{0}/{1}", SEngine::getSetting("ImageFolder"), $photo["Path"]);
 		}
 
 		echo json_encode($photos);
@@ -801,21 +801,21 @@ class Links {
 		$params = $url['query'];
 		$routes = explode('/', $path);
 		$key    = 1;
-		if (CS::getSetting("Subdomen")) {
+		if (SEngine::getSetting("Subdomen")) {
 			$key++;
 		}
 		if (!empty($routes[$key])) {
 			self::$view = $routes[$key];
 		}
 		else {
-			self::$view = CS::getSetting("DefaultView");
+			self::$view = SEngine::getSetting("DefaultView");
 		}
 
 		if (!empty($routes[$key + 1])) {
 			self::$action = $routes[$key + 1];
 		}
 		else {
-			self::$action = CS::getSetting("DefaultAction");
+			self::$action = SEngine::getSetting("DefaultAction");
 		}
 
 		$params  = explode('&', $params);
@@ -830,7 +830,7 @@ class Links {
 	}
 
 	public static function getFullPathPage () {
-		return CS::getFullPath(stringFormat("{0}/{1}/{2}.php", CS::getSetting("ViewFolder"), self::$view, self::$action));
+		return SEngine::getFullPath(stringFormat("{0}/{1}/{2}.php", SEngine::getSetting("ViewFolder"), self::$view, self::$action));
 	}
 
 	public static function openPage () {
@@ -855,7 +855,7 @@ class Links {
 	}
 
 	public static function getErrorPage () {
-		$errorPath = CS::getFullPath(CS::getSetting("Error_view"));
+		$errorPath = SEngine::getFullPath(SEngine::getSetting("Error_view"));
 		if (file_exists($errorPath)) {
 			include $errorPath;
 		}
@@ -873,13 +873,13 @@ class Links {
 	}
 
 	public static function setTitleActiveView(){
-		$title = CS::getLocalization("title");
+		$title = SEngine::getLocalization("title");
 		$viewName = Menu::getMenuForView(self::$view);
 		if(!empty($viewName)){
 
 		}
 		$title = stringFormat("{0} - {1}", $viewName, $title);
-		CS::addLocalization("title", $title, Languages::Russian);
+		SEngine::addLocalization("title", $title, Languages::Russian);
 	}
 }
 
@@ -1161,5 +1161,5 @@ class Image {
 include $settingsFile;
 include $localizationFile;
 
-CS::init();
+SEngine::init();
 ?>

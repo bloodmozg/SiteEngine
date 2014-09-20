@@ -1,29 +1,29 @@
 <?php
-CS::addSetting("EngineName", "SEngine");
-CS::addSetting("Debug", 1);
-CS::addSetting("Language", Languages::Russian);
-CS::addSetting("UseDataBase", true);
+SEngine::addSetting("EngineName", "SEngine");
+SEngine::addSetting("Debug", 1);
+SEngine::addSetting("Language", Languages::Russian);
+SEngine::addSetting("UseDataBase", true);
 
-CS::addSetting("Error_view", "error_view.php");
-CS::addSetting("Error_bd", "error_bd.php");
+SEngine::addSetting("Error_view", "error_view.php");
+SEngine::addSetting("Error_bd", "error_bd.php");
 
-CS::addSetting("ViewFolder", "views");
-CS::addSetting("DefaultView", "Shared");
-CS::addSetting("DefaultAction", "index");
-CS::addSetting("Subdomen", true);
+SEngine::addSetting("ViewFolder", "views");
+SEngine::addSetting("DefaultView", "Shared");
+SEngine::addSetting("DefaultAction", "index");
+SEngine::addSetting("Subdomen", true);
 
-CS::addSetting("MenuFile", "menu.xml");
+SEngine::addSetting("MenuFile", "menu.xml");
 
-CS::addSetting("ImageFolder", "Images");
-CS::addSetting("SystemFolder", "System");
-CS::addSetting("MenuImagesFolder", "Menu");
-CS::addSetting("NoImage", "no-image.png");
-CS::addSetting("AlbumsTable", "albums");
-CS::addSetting("PhotosTable", "photos");
+SEngine::addSetting("ImageFolder", "Images");
+SEngine::addSetting("SystemFolder", "System");
+SEngine::addSetting("MenuImagesFolder", "Menu");
+SEngine::addSetting("NoImage", "no-image.png");
+SEngine::addSetting("AlbumsTable", "albums");
+SEngine::addSetting("PhotosTable", "photos");
 
-CS::addSetting("MiddleContainer", "middle");
+SEngine::addSetting("MiddleContainer", "middle");
 
-CS::addSetting("BD_Login", "root", false);
-CS::addSetting("BD_Password", "", false);
-CS::addSetting("BD_Name", "liceum", false);
+SEngine::addSetting("BD_Login", "root", false);
+SEngine::addSetting("BD_Password", "", false);
+SEngine::addSetting("BD_Name", "liceum", false);
 ?>
