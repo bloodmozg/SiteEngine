@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 
-$rootPath = "../SEngine/";
+$rootPath = "../SiteEngine/";
 
 $mysqlFile = stringFormat("{0}{1}", $rootPath, "safeMysql.php");
 $localizationFile = stringFormat("{0}{1}", $rootPath, "Localization.php");
@@ -30,7 +30,7 @@ abstract class SEngine {
 	}
 
 	private static function initRootPath () {
-		self::$enginePath = "../SEngine/";
+		self::$enginePath = "../SiteEngine/";
 		self::$rootPath = "";
 	}
 
