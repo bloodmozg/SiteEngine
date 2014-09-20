@@ -275,5 +275,3 @@ proto.addProp = function (name, type, defaultValue) {
 
 	return this[name];
 };
-
-ЖОПА
