@@ -25,11 +25,13 @@ proto.init = function () {
 	Button.Parent.prototype.init.apply (this);
 	this.Text.init ();
 	this.Class.add ("leftNode");
+	this.Selected.init();
 };
 
 proto.initOverloadedGettersSetters = function () {
 	Button.Parent.prototype.initOverloadedGettersSetters.apply (this);
 	this.Selected.set = this.Selected.extend ("set", this.setSelected, this);
+	this.Selected.init = this.Selected.extend ("init", this.initSelected, this);
 	this.Text.set = this.Text.extend ("set", this.setText, this);
 	this.Text.init = this.Text.extend ("init", this.initText, this);
 };
@@ -53,15 +55,17 @@ proto.createNode = function () {
 };
 
 proto.setSelected = function (oldValue, newValue) {
-	if (oldValue !== newValue) {
-		if (newValue === true) {
-			this.Class.add ("Selected");
-		}
-		else {
-			this.Class.remove ("Selected");
-		}
+	if (newValue === true) {
+		this.Class.add ("Selected");
+	}
+	else {
+		this.Class.remove ("Selected");
 	}
 	this.Clickable.set (!newValue);
+};
+
+proto.initSelected = function(){
+	this.Selected.set(this.Selected.get());
 };
 
 proto.setText = function (oldText, newText) {
